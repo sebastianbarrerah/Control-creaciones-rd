@@ -3,25 +3,22 @@ export default function pageFormulario() {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
+        const { nombre, producto, precio, fecha, descripcion } = e.target;
+        const name = nombre.value;
+        const product = producto.value;
+        const price = precio.value;
+        const date = fecha.value;
+        const description = descripcion.value;
 
-        const { nombre, producto, precio, fecha, descripcion } = e.target
-        let venta = {
-            name: nombre.value,
-            product: producto.value,
-            price: precio.value,
-            date: fecha.value,
-            description: descripcion.value
-        }
-
-        const response = await fetch('../api', {
+        const response = await fetch('https://bd-control.onrender.com/ventas', {
             method: 'POST',
-            body: JSON.stringify({venta}),
+            body: JSON.stringify({name, product, price, date, description}),
             headers: {
                 'Content-type': 'application/json'
             }
         })
-       
-
+        const data = await response.json()
+        console.log(data);
     }
 
     return (
