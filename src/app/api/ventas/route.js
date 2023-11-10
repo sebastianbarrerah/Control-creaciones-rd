@@ -18,9 +18,7 @@ export async function POST(request) {
         fecha: date,
         descripcion: description
     }
-    console.log(venta);
-    return NextResponse.json()
+    return NextResponse.json(venta)
 }
 
-Hola compañeros
 

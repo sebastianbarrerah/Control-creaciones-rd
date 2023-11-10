@@ -18,7 +18,8 @@ export default function pageFormulario() {
             }
         })
         const data = await response.json()
-        console.log(data);
+        console.log(data, "Esto es post antes");
+        console.log("Se realizo con exito");
     }
 
     return (
