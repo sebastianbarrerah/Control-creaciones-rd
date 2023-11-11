@@ -2,8 +2,6 @@
 import { Link } from 'next/link'
 
 export default function pageHome(){
-
-  const router = useRouter()
   return (
     <>
       <p className="text-slate-100 text-3xl w-4/5 m-auto text-center my-10">
