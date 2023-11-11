@@ -12,7 +12,7 @@ export async function GET() {
 export async function POST(request) {
     const { name, product, price, date, description } = await request.json();
     const venta = {
-        nombre:name, 
+        nombre: name, 
         producto: product,
         precio: price,
         fecha: date,

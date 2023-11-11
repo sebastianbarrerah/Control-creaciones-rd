@@ -3,23 +3,33 @@ export default function pageFormulario() {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        const { nombre, producto, precio, fecha, descripcion } = e.target;
-        const name = nombre.value;
-        const product = producto.value;
-        const price = precio.value;
-        const date = fecha.value;
-        const description = descripcion.value;
+        const nombre = e.target.nombre.value;
+        const producto = e.target.producto.value;
+        const precio = e.target.precio.value;
+        const fecha = e.target.fecha.value;
+        const descripcion = e.target.descripcion.value;
 
-        const response = await fetch('https://bd-control.onrender.com/ventas', {
-            method: 'POST',
-            body: JSON.stringify({name, product, price, date, description}),
-            headers: {
-                'Content-type': 'application/json'
-            }
-        })
-        const data = await response.json()
-        console.log(data, "Esto es post antes");
-        console.log("Se realizo con exito");
+        const venta = {
+            nombre: nombre,
+            producto: producto, 
+            precio: precio,
+            fecha: fecha, 
+            descripcion: descripcion
+        }
+
+        try {
+            const response = await fetch('https://bd-control.onrender.com/ventas', {
+                method: 'POST',
+                body: JSON.stringify( venta ),
+                headers: {
+                    'Content-type': 'application/json'
+                }
+            })
+            const data = await response.json()
+        } catch (error) {
+            console.log(error);
+        }
+
     }
 
     return (
