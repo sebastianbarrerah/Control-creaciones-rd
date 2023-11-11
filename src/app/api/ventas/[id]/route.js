@@ -11,3 +11,21 @@ export async function GET (request, { params }){
         console.log(error);
     }
 }
+
+async function listVentas() {
+    const dataFunction = await GET()
+    return(
+        <>
+            {
+                dataFunction.map((element) => (
+                    <div>
+                        {element.nombre}
+                    </div>       
+                ))
+            }
+        </>
+        
+    )
+}
+
+export default listVentas;

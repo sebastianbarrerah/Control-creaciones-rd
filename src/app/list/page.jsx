@@ -1,7 +1,6 @@
 'use client'
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { data } from "autoprefixer";
 
 export function listPage() {
   const [datApi, setdatApi] = useState([])
@@ -11,10 +10,9 @@ export function listPage() {
     const getData = async() => {
         const response = await fetch("https://bd-control.onrender.com/ventas");
         const data = await response.json()
-        console.log(data, "no sirve");
-        setdatApi(data)
-        getData()
+        setdatApi(data, "esto es data")
       }
+      getData()
   }, [])
 
   return (
@@ -23,8 +21,8 @@ export function listPage() {
       <section className="w-full flex flex-wrap pt-10 gap-3 mb-2">
         {
           datApi.map((item) => (
-            <div key={item.id} className="p-5 bg-slate-200 rounded-lg w-[30%] flex flex-col mx-auto hover:opacity-60 cursor-pointer" 
-            onClick={() => router.push(`../api/ventas/${item.id}`)}>
+            <div key={item.id} className="p-5 bg-slate-200 rounded-lg table:w-[30%] flex flex-col mx-auto hover:opacity-60 cursor-pointer mobile:w-[90%]" 
+            onClick={() => router.push(`../send/enviar/${item.id}`)}>
               <span className="w-full font-bold text-3xl">{item.id}</span>
               <div className="flex" >
                 <span className="w-[40%]"><strong >Nombre:</strong></span>
