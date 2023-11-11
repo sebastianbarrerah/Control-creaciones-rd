@@ -1,5 +1,5 @@
 'use client'
-import { useRouter } from 'next/navigation'
+import { Link } from 'next/link'
 
 export default function pageHome(){
 
@@ -17,7 +17,9 @@ export default function pageHome(){
       </p>
 
       <div className="w-full flex justify-center">
-        <button className="mt-14  px-5 py-2 bg-gray-950 text-slate-100 rounded-xl   mx-auto table:w-[20%] mobile:w-[50%] self-center content-center text-center hover:bg-red-500 " onClick={() => router.push('/form')}>Añadir Venta</button>
+        <Link href="/form">
+        <button className="mt-14  px-5 py-2 bg-gray-950 text-slate-100 rounded-xl   mx-auto table:w-[20%] mobile:w-[50%] self-center content-center text-center hover:bg-red-500 " >Añadir Venta</button>
+        </Link>
       </div>
     </>
   )
