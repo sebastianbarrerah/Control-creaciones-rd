@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
-export function listPage() {
+export function ListPage() {
   const [datApi, setdatApi] = useState([])
   const router = useRouter()
 
@@ -56,4 +56,4 @@ export function listPage() {
   )
 }
 
-export default listPage;
+export default ListPage;
