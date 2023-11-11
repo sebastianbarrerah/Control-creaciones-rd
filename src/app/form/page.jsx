@@ -1,6 +1,6 @@
 'use client'
 import { useRouter } from "next/navigation";
-export default function pageFormulario() {
+export default function PageFormulario() {
     const router = useRouter()
     const handleSubmit = async (e) => {
         e.preventDefault()
